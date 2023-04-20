@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-    "XXX",
-    " # ",
-    " # "
+    "X",
+    "X",
+    "#"
   ],
   "key": {
     "X": {
@@ -15,7 +15,7 @@
     }
   },
   "result": {
-    "item": "moretools:dirt_pickaxe",
+    "item": "moretools:dirt_sword",
     "count": 1
   }
 }
