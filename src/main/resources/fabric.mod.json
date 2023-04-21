@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "moretools",
+	"version": "${version}",
+	"name": "moretools",
+	"description": "This adds more tools which can be made from Vanilla Items",
+	"authors": [
+		"ApriSi"
+	],
+	"contact": {
+		"homepage": "https://github.com/ApriSi"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/moretools/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"aprisi.moretools.MoreTools"
+		],
+		"fabric-datagen": [
+			"aprisi.moretools.MoreToolsDataGenerator"
+		]
+	},
+	"mixins": [
+		"moretools.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.19",
+		"minecraft": "~1.19.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
