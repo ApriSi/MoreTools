@@ -18,7 +18,7 @@
 			"aprisi.moretools.MoreTools"
 		],
 		"fabric-datagen": [
-			"aprisi.moretools.ExampleModDataGenerator"
+			"aprisi.moretools.MoreToolsDataGenerator"
 		]
 	},
 	"mixins": [
