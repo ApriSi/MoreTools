@@ -22,5 +22,8 @@ public class MoreToolsEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(MoreToolsItems.MAGMA_SWORD, "Magma Sword");
         translationBuilder.add(MoreToolsItems.MAGMA_HOE, "Magma Hoe");
         translationBuilder.add(MoreToolsItems.MAGMA_SHOVEL, "Magma Shovel");
+
+        translationBuilder.add("item.moretools.magma_axe.tooltip", "Sets the enemy on fire");
+        translationBuilder.add("item.moretools.magma_sword.tooltip", "Sets the enemy on fire");
     }
 }

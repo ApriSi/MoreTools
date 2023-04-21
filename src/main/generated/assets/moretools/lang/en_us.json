@@ -5,8 +5,10 @@
   "item.moretools.dirt_shovel": "Dirt Shovel",
   "item.moretools.dirt_sword": "Dirt Sword",
   "item.moretools.magma_axe": "Magma Axe",
+  "item.moretools.magma_axe.tooltip": "Sets the enemy on fire",
   "item.moretools.magma_hoe": "Magma Hoe",
   "item.moretools.magma_pickaxe": "Magma Pickaxe",
   "item.moretools.magma_shovel": "Magma Shovel",
-  "item.moretools.magma_sword": "Magma Sword"
+  "item.moretools.magma_sword": "Magma Sword",
+  "item.moretools.magma_sword.tooltip": "Sets the enemy on fire"
 }
