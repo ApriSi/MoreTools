@@ -3,19 +3,19 @@
   "category": "equipment",
   "key": {
     "#": {
-      "item": "minecraft:dirt"
+      "item": "minecraft:magma_block"
     },
     "X": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "#",
-    "#",
-    "X"
+    "##",
+    " X",
+    " X"
   ],
   "result": {
-    "item": "moretools:dirt_sword"
+    "item": "moretools:magma_hoe"
   },
   "show_notification": true
 }

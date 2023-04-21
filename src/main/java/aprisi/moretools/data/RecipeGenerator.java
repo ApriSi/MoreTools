@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
@@ -12,60 +13,88 @@ import net.minecraft.util.Identifier;
 import java.util.function.Consumer;
 
 public class RecipeGenerator extends FabricRecipeProvider {
+    private static Consumer<RecipeJsonProvider> Exporter;
+
     public RecipeGenerator(FabricDataOutput output) {
         super(output);
     }
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, MoreToolsItems.DIRT_SWORD)
+        Exporter = exporter;
+
+        // Dirt Tools
+       CreateAxeRecipe(MoreToolsItems.DIRT_AXE, Items.DIRT);
+       CreateSwordRecipe(MoreToolsItems.DIRT_SWORD, Items.DIRT);
+       CreatePickaxeRecipe(MoreToolsItems.DIRT_PICKAXE, Items.DIRT);
+       CreateHoeRecipe(MoreToolsItems.DIRT_HOE, Items.DIRT);
+       CreateShovelRecipe(MoreToolsItems.DIRT_SHOVEL, Items.DIRT);
+
+       // Magma Tools
+       CreateAxeRecipe(MoreToolsItems.MAGMA_AXE, Items.MAGMA_BLOCK);
+       CreateSwordRecipe(MoreToolsItems.MAGMA_SWORD, Items.MAGMA_BLOCK);
+       CreatePickaxeRecipe(MoreToolsItems.MAGMA_PICKAXE, Items.MAGMA_BLOCK);
+       CreateHoeRecipe(MoreToolsItems.MAGMA_HOE, Items.MAGMA_BLOCK);
+       CreateShovelRecipe(MoreToolsItems.MAGMA_SHOVEL, Items.MAGMA_BLOCK);
+    }
+
+    private static void CreateAxeRecipe(Item output, Item inputItem) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output)
+                .pattern("##")
+                .pattern("#X")
+                .pattern(" X")
+                .input('X', Items.STICK)
+                .input('#', inputItem)
+                .criterion(FabricRecipeProvider.hasItem(inputItem), FabricRecipeProvider.conditionsFromItem(inputItem))
+                .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .offerTo(Exporter, new Identifier(FabricRecipeProvider.getRecipeName(output)));
+    }
+
+    private static void CreatePickaxeRecipe(Item output, Item inputItem) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output)
+                .pattern("###")
+                .pattern(" X ")
+                .pattern(" X ")
+                .input('X', Items.STICK)
+                .input('#', inputItem)
+                .criterion(FabricRecipeProvider.hasItem(inputItem), FabricRecipeProvider.conditionsFromItem(inputItem))
+                .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .offerTo(Exporter, new Identifier(FabricRecipeProvider.getRecipeName(output)));
+    }
+
+    private static void CreateSwordRecipe(Item output, Item inputItem) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output)
+                .pattern("#")
+                .pattern("#")
+                .pattern("X")
+                .input('X', Items.STICK)
+                .input('#', inputItem)
+                .criterion(FabricRecipeProvider.hasItem(inputItem), FabricRecipeProvider.conditionsFromItem(inputItem))
+                .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
+                .offerTo(Exporter, new Identifier(FabricRecipeProvider.getRecipeName(output)));
+    }
+
+    private static void CreateShovelRecipe(Item output, Item inputItem) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output)
+                .pattern("#")
                 .pattern("X")
                 .pattern("X")
-                .pattern("#")
-                .input('#', Items.STICK)
-                .input('X', Items.DIRT)
-                .criterion(FabricRecipeProvider.hasItem(Items.DIRT), FabricRecipeProvider.conditionsFromItem(Items.DIRT))
+                .input('X', Items.STICK)
+                .input('#', inputItem)
+                .criterion(FabricRecipeProvider.hasItem(inputItem), FabricRecipeProvider.conditionsFromItem(inputItem))
                 .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(MoreToolsItems.DIRT_SWORD)));
+                .offerTo(Exporter, new Identifier(FabricRecipeProvider.getRecipeName(output)));
+    }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, MoreToolsItems.DIRT_AXE)
-                .pattern("XX")
-                .pattern("X#")
-                .pattern(" #")
-                .input('#', Items.STICK)
-                .input('X', Items.DIRT)
-                .criterion(FabricRecipeProvider.hasItem(Items.DIRT), FabricRecipeProvider.conditionsFromItem(Items.DIRT))
+    private static void CreateHoeRecipe(Item output, Item inputItem) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, output)
+                .pattern("##")
+                .pattern(" X")
+                .pattern(" X")
+                .input('X', Items.STICK)
+                .input('#', inputItem)
+                .criterion(FabricRecipeProvider.hasItem(inputItem), FabricRecipeProvider.conditionsFromItem(inputItem))
                 .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(MoreToolsItems.DIRT_AXE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, MoreToolsItems.DIRT_HOE)
-                .pattern("XX")
-                .pattern(" #")
-                .pattern(" #")
-                .input('#', Items.STICK)
-                .input('X', Items.DIRT)
-                .criterion(FabricRecipeProvider.hasItem(Items.DIRT), FabricRecipeProvider.conditionsFromItem(Items.DIRT))
-                .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(MoreToolsItems.DIRT_HOE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, MoreToolsItems.DIRT_PICKAXE)
-                .pattern("XXX")
-                .pattern(" # ")
-                .pattern(" # ")
-                .input('#', Items.STICK)
-                .input('X', Items.DIRT)
-                .criterion(FabricRecipeProvider.hasItem(Items.DIRT), FabricRecipeProvider.conditionsFromItem(Items.DIRT))
-                .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(MoreToolsItems.DIRT_PICKAXE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, MoreToolsItems.DIRT_SHOVEL)
-                .pattern("X")
-                .pattern("#")
-                .pattern("#")
-                .input('#', Items.STICK)
-                .input('X', Items.DIRT)
-                .criterion(FabricRecipeProvider.hasItem(Items.DIRT), FabricRecipeProvider.conditionsFromItem(Items.DIRT))
-                .criterion(FabricRecipeProvider.hasItem(Items.STICK), FabricRecipeProvider.conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(MoreToolsItems.DIRT_SHOVEL)));
+                .offerTo(Exporter, new Identifier(FabricRecipeProvider.getRecipeName(output)));
     }
 }

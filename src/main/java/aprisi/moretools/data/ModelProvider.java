@@ -24,5 +24,11 @@ public class ModelProvider extends FabricModelProvider {
         itemModelGenerator.register(MoreToolsItems.DIRT_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(MoreToolsItems.DIRT_SWORD, Models.HANDHELD);
         itemModelGenerator.register(MoreToolsItems.DIRT_SHOVEL, Models.HANDHELD);
+
+        itemModelGenerator.register(MoreToolsItems.MAGMA_AXE, Models.HANDHELD);
+        itemModelGenerator.register(MoreToolsItems.MAGMA_HOE, Models.HANDHELD);
+        itemModelGenerator.register(MoreToolsItems.MAGMA_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(MoreToolsItems.MAGMA_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(MoreToolsItems.MAGMA_SHOVEL, Models.HANDHELD);
     }
 }

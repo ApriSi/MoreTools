@@ -1,38 +1,39 @@
 package aprisi.moretools.item;
 
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class DirtToolMaterial implements ToolMaterial {
-    public static final DirtToolMaterial INSTANCE = new DirtToolMaterial();
+public class MagmaToolMaterial implements ToolMaterial {
+    public static final MagmaToolMaterial INSTANCE = new MagmaToolMaterial();
 
     @Override
     public int getDurability() {
-        return 10;
+        return 300;
     }
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 1.5f;
+        return 5.0f;
     }
 
     @Override
     public float getAttackDamage() {
-        return 0.2f;
+        return 2.0f;
     }
 
     @Override
     public int getMiningLevel() {
-        return 1;
+        return 2;
     }
 
     @Override
     public int getEnchantability() {
-        return 0;
+        return 15;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return null;
+        return Ingredient.ofItems(Items.MAGMA_BLOCK);
     }
 }
