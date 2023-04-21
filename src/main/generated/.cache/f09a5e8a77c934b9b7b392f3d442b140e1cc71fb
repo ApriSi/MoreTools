@@ -1,4 +1,4 @@
-// 1.19.4	2023-04-21T17:42:15.2725055	moretools/Recipes
+// 1.19.4	2023-04-22T01:39:58.8140129	moretools/Recipes
 54710f314dc082925bf45daa3ac15b4b084416c6 data\moretools\advancements\recipes\tools\magma_sword.json
 ad2acb0ddc48ebf8c0e541e628ef8c5d2fd91150 data\moretools\recipes\dirt_axe.json
 93a1b0620b65c10bbcf6d31ab1bbc78e4b91668e data\moretools\recipes\dirt_hoe.json
@@ -15,7 +15,7 @@ e84f6e0c533fba678b2d9095bd14a5598bdae634 data\moretools\recipes\magma_shovel.jso
 0639b43c138446c25ec956c34c05679fe77c0afa data\moretools\recipes\dirt_sword.json
 f6bc28ad4f479b8d9e8a918405f5e357360e644f data\moretools\advancements\recipes\tools\dirt_shovel.json
 72fc01350f3da551c7ed530a8e177ae9031525ff data\moretools\recipes\magma_hoe.json
-f93998d72e63928a271f00ece9468530054969f8 data\moretools\recipes\dirt_shovel.json
 54243d0bbbbcdf677ae7ae03dfb56c94968a6a3e data\moretools\recipes\magma_axe.json
+f93998d72e63928a271f00ece9468530054969f8 data\moretools\recipes\dirt_shovel.json
 e1407eabfa28d1e25f3dfe1700248586f0f063ab data\moretools\advancements\recipes\tools\magma_pickaxe.json
 005c6e81bb973140ab6e7bde0aa365487941a1ea data\moretools\advancements\recipes\tools\magma_shovel.json
